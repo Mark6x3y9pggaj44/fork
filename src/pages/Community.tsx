@@ -16,6 +16,7 @@ import MoreActions from "../components/community/MoreActions";
 import { useAppDispatch, useAppSelector } from "../store";
 import { useEffect } from "react";
 import { getCommunity } from "../components/community/communitySlice";
+import TitleSearch from "../components/TitleSearch";
 
 export default function Community() {
   const dispatch = useAppDispatch();
@@ -45,12 +46,12 @@ export default function Community() {
             />
           </IonButtons>
 
-          <IonTitle>{community}</IonTitle>
-
-          <IonButtons slot="end">
-            <PostSort />
-            <MoreActions community={community} />
-          </IonButtons>
+          <TitleSearch community={community}>
+            <IonButtons slot="end">
+              <PostSort />
+              <MoreActions community={community} />
+            </IonButtons>
+          </TitleSearch>
         </IonToolbar>
       </IonHeader>
       <IonContent>
